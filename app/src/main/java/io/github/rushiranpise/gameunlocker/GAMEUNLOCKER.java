@@ -188,10 +188,10 @@ public class GAMEUNLOCKER implements IXposedHookLoadPackage {
     // OnePlus
     // Props to Spoof as OnePlus 8 Pro
     private static void propsToChangeOP8P() {
-        setPropValue("MANUFACTURER", "OnePlus");
-        setPropValue("MODEL", "IN2020");
+        setPropValue("MANUFACTURER", "samsung");
+        setPropValue("MODEL", "SM-G600S");
     }
-
+    
     // Props to Spoof as OnePlus 9 Pro
     private static void propsToChangeOP9P() {
         setPropValue("MANUFACTURER", "OnePlus");
