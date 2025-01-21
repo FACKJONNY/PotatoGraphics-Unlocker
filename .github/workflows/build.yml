@@ -33,34 +33,33 @@ jobs:
 
     - name: Get App Version Name
       id: version
-      run: echo "::set-output name=app_version::$(grep versionName app/build.gradle | sed -n 's/.*versionName \"[0-9.]*\".*/\1/p')"
+      run: echo "app_version=$(grep versionName app/build.gradle | sed -n 's/.*versionName \"[0-9.]*\".*/\1/p')" >> $GITHUB_ENV
 
     - name: Rename APK
-      run: mv app/build/outputs/apk/debug/app-debug.apk game-unlocker-v${{ steps.version.outputs.app_version }}.apk
+      run: mv app/build/outputs/apk/debug/app-debug.apk game-unlocker-v${{ env.app_version }}.apk
 
-    - name: Upload APK
+    - name: Upload APK as an artifact
       uses: actions/upload-artifact@v4
       with:
         name: Game Unlocker
-        path: game-unlocker-v${{ steps.version.outputs.app_version }}.apk
+        path: game-unlocker-v${{ env.app_version }}.apk
 
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
       with:
-        files: game-unlocker-v${{ steps.version.outputs.app_version }}.apk
-        tag_name: ${{ steps.version.outputs.app_version }}
-        release_name: ${{ steps.version.outputs.app_version }}
+        tag_name: v${{ env.app_version }}
+        release_name: v${{ env.app_version }}
         prerelease: false
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Upload Release Assets
-      run: |
-        release_id=${{ steps.create_release.outputs.id }}
-        asset_url=$(curl -X POST \
-          -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-          -H "Content-Type: application/octet-stream" \
-          --data-binary "@game-unlocker-v${{ steps.version.outputs.app_version }}.apk" \
-          "https://uploads.github.com/repos/${{ github.repository }}/releases/$release_id/assets?name=game-unlocker-v${{ steps.version.outputs.app_version }}.apk")
-        echo "Uploaded asset: $asset_url"
+    - name: Upload Release Asset
+      uses: actions/upload-release-asset@v1
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: game-unlocker-v${{ env.app_version }}.apk
+        asset_name: game-unlocker-v${{ env.app_version }}.apk
+        asset_content_type: application/vnd.android.package-archive
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
