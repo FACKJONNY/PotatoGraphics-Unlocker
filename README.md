@@ -16,7 +16,7 @@ Spoof your device as different model for specific games to unlock low texture ðŸ
 
 ## Getting Started
 
-To get started with Game Unlocker, follow these steps:
+To get started with Low Texture Unlocker, follow these steps:
 
 1. Ensure that your Android device is rooted.
 
