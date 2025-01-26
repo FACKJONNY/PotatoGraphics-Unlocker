@@ -50,7 +50,7 @@ jobs:
       with:
         files: game-unlocker-v${{ steps.version.outputs.app_version }}.apk
         tag_name: TEST
-        release_name: TESTV1
+        release_name: TESTv1
         prerelease: false
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
