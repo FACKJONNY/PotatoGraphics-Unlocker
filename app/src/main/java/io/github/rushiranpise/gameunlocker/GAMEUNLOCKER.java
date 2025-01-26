@@ -20,7 +20,7 @@ public class GAMEUNLOCKER implements IXposedHookLoadPackage {
 
     private static final String TAG = GAMEUNLOCKER.class.getSimpleName();
 
-    // Packages to Spoof as OnePlus 8 Pro
+    // Packages to Spoof as Samsung Galaxy On7
     private static final String[] packagesToChangeSamsungGalaxyOn7 = {
         "com.tencent.ig",
         "com.pubg.krmobile",
