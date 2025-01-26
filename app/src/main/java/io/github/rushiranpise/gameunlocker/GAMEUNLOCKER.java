@@ -28,9 +28,7 @@ public class GAMEUNLOCKER implements IXposedHookLoadPackage {
         "com.rekoo.pubgm",
         "com.pubg.imobile",
         "com.tencent.gam",
-        "com.tencent.iglite",
-        "com.dts.freefireth",
-        "com.dts.freefiremax"
+        "com.tencent.iglite"
     };
 
     @Override
