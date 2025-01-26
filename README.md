@@ -35,10 +35,6 @@ To get started with Low Texture Unlocker, follow these steps:
 
 Report any suggestions/issues with games [here](https://github.com/rushiranpise/Game-Unlocker/issues)
 
-## Supported Games
-
-PUBG Mobile All versions
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
