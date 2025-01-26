@@ -7,6 +7,9 @@ Spoof your device as different model for specific games to unlock low texture ðŸ
 - Device spoofing for enhanced gaming experiences. [ Unlock low-Texure (kind of Potato Graphics ðŸ¥”) ]
 - Easy installation and no configuration.
 
+## important !
+- Try this at your own risk! 
+
 ## Table of Contents
 
 - [Getting Started](#getting-started)
