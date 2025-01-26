@@ -49,8 +49,8 @@ jobs:
       uses: actions/create-release@v1
       with:
         files: game-unlocker-v${{ steps.version.outputs.app_version }}.apk
-        tag_name: ${{ steps.version.outputs.app_version }}
-        release_name: ${{ steps.version.outputs.app_version }}
+        tag_name: TEST
+        release_name: TESTV1
         prerelease: false
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
